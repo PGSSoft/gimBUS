@@ -23,7 +23,7 @@ public class TestSubscriber3 {
     public TestEvent3 lastReceivedEvent3 = null;
     public TestInterfaceEvent1 lastReceivedInterfaceEvent1 = null;
 
-    @Subscribe
+    @Subscribe(EventBus.DELIVER_IN_DISPATCHER_THREAD)
     public void onTestEvent1(TestEvent1 event) {
         lastReceivedEvent1 = event;
     }
