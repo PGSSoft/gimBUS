@@ -13,6 +13,13 @@
  */
 package com.pgssoft.gimbus;
 
+import com.pgssoft.gimbus.mocks.TestEvent1;
+import com.pgssoft.gimbus.mocks.TestEvent2;
+import com.pgssoft.gimbus.mocks.TestEvent3;
+import com.pgssoft.gimbus.mocks.TestInterfaceEvent1;
+import com.pgssoft.gimbus.mocks.TestSubscriber1;
+import com.pgssoft.gimbus.mocks.TestSubscriber2;
+
 import junit.framework.TestCase;
 
 import java.io.Serializable;
@@ -21,12 +28,6 @@ import java.util.Map;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 import java.util.concurrent.TimeUnit;
-
-import com.pgssoft.gimbus.mocks.TestEvent1;
-import com.pgssoft.gimbus.mocks.TestEvent2;
-import com.pgssoft.gimbus.mocks.TestInterfaceEvent1;
-import com.pgssoft.gimbus.mocks.TestSubscriber1;
-import com.pgssoft.gimbus.mocks.TestSubscriber2;
 
 /**
  * Unit tests for the Cache class.
@@ -174,6 +175,36 @@ public class CacheTest extends TestCase {
         //wait for all runnables to finish
         executor.shutdown();
         executor.awaitTermination(15, TimeUnit.SECONDS);
+    }
 
+    public void testMultipleStickyEventsOfSameClass() {
+        assertTrue(Cache.stickyEvents.size() == 0);
+
+        TestEvent1 testEvent1 = new TestEvent1();
+        TestEvent2 testEvent2 = new TestEvent2();
+        TestEvent3 testEvent3 = new TestEvent3();
+
+        Cache.stickyEvents.put(testEvent1.getClass(), testEvent1);
+        Cache.stickyEvents.put(testEvent2.getClass(), testEvent2);
+        Cache.stickyEvents.put(testEvent3.getClass(), testEvent3);
+
+        assertTrue(Cache.stickyEvents.size() == 3);
+        assertSame(testEvent1, Cache.stickyEvents.get(TestEvent1.class));
+
+        //Registering another sticky event of the same class should replace existing instance
+        TestEvent1 testEvent11 = new TestEvent1();
+        Cache.stickyEvents.put(testEvent11.getClass(), testEvent11);
+
+        assertTrue(Cache.stickyEvents.size() == 3);
+        assertSame(testEvent11, Cache.stickyEvents.get(TestEvent1.class));
+
+        Cache.stickyEvents.remove(TestEvent1.class);
+        assertTrue(Cache.stickyEvents.size() == 2);
+        assertNull(Cache.stickyEvents.get(TestEvent1.class));
+        assertSame(testEvent2, Cache.stickyEvents.get(TestEvent2.class));
+        assertSame(testEvent3, Cache.stickyEvents.get(TestEvent3.class));
+
+        //Cleanup
+        Cache.stickyEvents.clear();
     }
 }

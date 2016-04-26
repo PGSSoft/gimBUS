@@ -16,12 +16,6 @@ package com.pgssoft.gimbus;
 import android.os.Looper;
 import android.test.InstrumentationTestCase;
 
-import java.lang.ref.WeakReference;
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Set;
-import java.util.concurrent.TimeUnit;
-
 import com.pgssoft.gimbus.mocks.Reference;
 import com.pgssoft.gimbus.mocks.TestEvent1;
 import com.pgssoft.gimbus.mocks.TestEvent2;
@@ -29,6 +23,12 @@ import com.pgssoft.gimbus.mocks.TestEvent3;
 import com.pgssoft.gimbus.mocks.TestInterfaceEvent1;
 import com.pgssoft.gimbus.mocks.TestSubscriber3;
 import com.pgssoft.gimbus.mocks.TestSubscriber4;
+
+import java.lang.ref.WeakReference;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Set;
+import java.util.concurrent.TimeUnit;
 
 /**
  * General EventBus tests.
@@ -328,4 +328,23 @@ public class EventBusTest extends InstrumentationTestCase {
             assertSame(sequence.get(i), testTarget.eventsUI.get(i));
     }
 
+    public void testStickyEvent() {
+        EventBus eventBus = new EventBus();
+        TestSubscriber3 testSubscriber3 = new TestSubscriber3();
+
+        TestEvent1 testEvent1 = new TestEvent1();
+        eventBus.sendSticky(testEvent1);
+
+        //Sticky event should be delivered right after new subscriber registered
+        eventBus.register(testSubscriber3);
+        assertSame(testEvent1, testSubscriber3.lastReceivedEvent1);
+
+        testSubscriber3.lastReceivedEvent1 = null;
+        eventBus.unregister(testSubscriber3);
+
+        //After removing sticky event, it should no longer be sent when new subscriber registers
+        eventBus.removeStickyEvent(TestEvent1.class);
+        eventBus.register(testSubscriber3);
+        assertNull(testSubscriber3.lastReceivedEvent1);
+    }
 }

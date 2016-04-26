@@ -100,6 +100,14 @@ import java.util.concurrent.ConcurrentHashMap;
     static final Map<Class<?>, Map<Class<?>, EventHandlersCacheItem>> mEventHandlersCache = new ConcurrentHashMap<>();
 
     /**
+     * Cache of events, that should be stored and delivered to every new subscriber as soon as it gets registered
+     * in the event bus.
+     * Key: sticky event class
+     * Value: sticky event instance
+     */
+    static final Map<Class<?>, Object> stickyEvents = new ConcurrentHashMap<>();
+
+    /**
      * An item in the mEventHandlersCache.
      * Note: the old-style linked list (the "nextItem") will be used only if given subscriber do
      * subscribe twice to the same event class, which shouldn't happen in production code. So it is
@@ -199,6 +207,4 @@ import java.util.concurrent.ConcurrentHashMap;
 
         return eventHandlers;
     }
-
-
 }
