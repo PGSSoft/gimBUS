@@ -13,3 +13,8 @@ before_script:
   - emulator -avd test -no-audio -no-window &
   - android-wait-for-emulator
   - adb shell input keyevent 82 &
+
+after_success:
+  - adb push eventbus\build\outputs\apk\eventbus-debug-androidTest-unaligned.apk /data/local/tmp/com.pgssoft.gimbus.test
+  - adb shell pm install -r "/data/local/tmp/com.pgssoft.gimbus.test"
+  - adb shell am instrument -w -r   -e debug false com.pgssoft.gimbus.test/android.test.InstrumentationTestRunner
