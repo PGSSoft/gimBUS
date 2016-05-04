@@ -1,4 +1,4 @@
-## gimBUS
+## gimBUS [![Build Status](https://travis-ci.org/bstokrocki/gimBUS.svg?branch=develop)](https://travis-ci.org/bstokrocki/gimBUS)
 Event bus for Android.
 
 ### Simple usage
