@@ -54,6 +54,7 @@ public class DelivererTest extends InstrumentationTestCase {
         deliverer1.run();
         assertSame(testEvent1, testSubscriber1.lastReceivedEvent1);
         testSubscriber1.lastReceivedEvent1 = null;
+        assertTrue(1 == 2);
     }
 
 
