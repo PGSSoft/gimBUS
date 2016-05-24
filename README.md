@@ -1,9 +1,12 @@
+![gimBUS](gimbus_logo.png "gimBUS")
+
+
 ## gimBUS [![Build Status](https://travis-ci.org/bstokrocki/gimBUS.svg?branch=develop)](https://travis-ci.org/bstokrocki/gimBUS)
 Event bus for Android with fine-grained thread control.
 
 ### Why not use Otto by Square?
 
-gimBUS has better delivery thread control, scroll down for details. gimBUS is also based on Guava, so transition from Otto is easy. Also - Otto is now deprecated in favor of Rx approach.
+gimBUS has better delivery thread control, scroll down for details. gimBUS is based on Guava too, so transition from Otto is easy. Also - Otto is now deprecated in favor of Rx approach.
 
 ### How to use gimBUS?
 
@@ -16,7 +19,7 @@ compile 'com.pgs-soft:gimbus:1.0.0'
 ```java
 EventBus eventBus = new EventBus();
 ```
-* Register any class as subscriber, mark receiver methods with `@Subscribe` annotation:
+* Register any object as subscriber, mark receiver methods with `@Subscribe` annotation:
 ```java
 someMethod(){
     ...
@@ -62,8 +65,8 @@ Available delivery modes:
 In Poland - it is a colloquial name of [school bus](https://en.wikipedia.org/wiki/School_bus#Poland).
 
 ### Authors ###
-Łukasz Płomiński / PGS Software SA
-support - Bartosz Stokrocki / PGS Software SA
+* Łukasz Płomiński (architecture and development)
+* Bartosz Stokrocki (unit testing and development)
 
 ### License ###
 The MIT License (MIT)
