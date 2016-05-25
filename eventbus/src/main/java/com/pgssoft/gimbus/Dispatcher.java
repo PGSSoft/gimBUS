@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 2016 Arivald
+ * Copyright (C) 2016 PGS Software SA
  *
  * Licensed under the Apache License, Version 2.0 (the "License"); you may not use this file except
  * in compliance with the License. You may obtain a copy of the License at
@@ -27,7 +27,7 @@ import java.util.Set;
  * <p/>
  * Dispatcher is Runnable, it will be executed by posting to some Handler, usually to dispatcher thread Handler
  * <p/>
- * @author Arivald
+ * @author Lukasz Plominski
  */
 /*package*/ final class Dispatcher implements Runnable {
 

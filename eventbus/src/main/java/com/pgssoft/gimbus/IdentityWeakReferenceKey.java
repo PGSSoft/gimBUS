@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 2016 Arivald
+ * Copyright (C) 2016 PGS Software SA
  *
  * Licensed under the Apache License, Version 2.0 (the "License"); you may not use this file except
  * in compliance with the License. You may obtain a copy of the License at
@@ -23,7 +23,7 @@ import java.lang.ref.WeakReference;
  * <p/>
  * Object is immutable, with exception for the referenced object, that may be GCed.
  * <p/>
- * @author Arivald
+ * @author Lukasz Plominski
  */
 public class IdentityWeakReferenceKey<T> extends WeakReference<T> {
 

@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 2016 Arivald
+ * Copyright (C) 2016 PGS Software SA
  *
  * Licensed under the Apache License, Version 2.0 (the "License"); you may not use this file except
  * in compliance with the License. You may obtain a copy of the License at
@@ -28,7 +28,7 @@ import java.lang.reflect.Method;
  * <p/>
  * Note: package access, the class is for internal use only.
  * <p/>
- * @author Arivald
+ * @author Lukasz Plominski
  */
 /*package*/ final class EventHandler {
 

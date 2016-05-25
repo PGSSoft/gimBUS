@@ -18,5 +18,5 @@
 
 -keepattributes *Annotation*
 -keepclassmembers class ** {
-    @arivald.eventbus.Subscribe * *;
+    @com.pgssoft.gimbus.Subscribe * *;
 }

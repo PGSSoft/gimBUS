@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 2016 Arivald
+ * Copyright (C) 2016 PGS Software SA
  * Copyright (C) 2007 The Guava Authors
  *
  * Licensed under the Apache License, Version 2.0 (the "License"); you may not use this file except
@@ -27,7 +27,7 @@ import java.lang.annotation.Target;
  * annotation is applied to methods with zero parameters, or more than one parameter, the object
  * containing the method will not be able to register for event delivery from the {@link EventBus}.
  * <p/>
- * @author Arivald (Android EventBus code)
+ * @author Lukasz Plominski (Android EventBus code)
  * @author Cliff Biffle (Guava inherited code)
  */
 @Retention(RetentionPolicy.RUNTIME)

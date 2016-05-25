@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 2016 Arivald
+ * Copyright (C) 2016 PGS Software SA
  *
  * Licensed under the Apache License, Version 2.0 (the "License"); you may not use this file except
  * in compliance with the License. You may obtain a copy of the License at
@@ -32,7 +32,7 @@ import java.util.concurrent.TimeUnit;
 /**
  * Unit tests for the Cache class.
  *
- * Created by Arivald on 2016-03-07.
+ * Created by Lukasz Plominski on 2016-03-07.
  */
 public class CacheTest extends TestCase {
 

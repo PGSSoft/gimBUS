@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 2016 Arivald
+ * Copyright (C) 2016 PGS Software SA
  * Copyright (C) 2007 The Guava Authors
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
@@ -25,7 +25,7 @@ import android.support.annotation.NonNull;
  * <p>Registering a DeadEvent subscriber is useful for debugging or logging, as it can detect
  * misconfigurations in a system's event distribution.
  *
- * @author Arivald (Android EventBus code)
+ * @author Lukasz Plominski (Android EventBus code)
  * @author Cliff Biffle (Guava inherited code)
  */
 public class DeadEvent {

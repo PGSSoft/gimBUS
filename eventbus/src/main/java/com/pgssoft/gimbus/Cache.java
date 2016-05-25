@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 2016 Arivald
+ * Copyright (C) 2016 PGS Software SA
  * Copyright (C) 2012 Square, Inc.
  *
  * Licensed under the Apache License, Version 2.0 (the "License"); you may not use this file except
@@ -32,7 +32,7 @@ import java.util.concurrent.ConcurrentHashMap;
  * <p/>
  * Note: package access, the class is for internal use only.
  * <p/>
- * @author Arivald
+ * @author Lukasz Plominski
  */
 /*package*/ class Cache {
 

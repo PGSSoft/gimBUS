@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 2016 Arivald
+ * Copyright (C) 2016 PGS Software SA
  * Copyright (C) 2012 Square, Inc.
  * Copyright (C) 2007 The Guava Authors
  *
@@ -79,7 +79,7 @@ import java.util.concurrent.atomic.AtomicInteger;
  * <p/>
  * <p>This class is safe for concurrent use.
  *
- * @author Arivald (Android EventBus code)
+ * @author Lukasz Plominski (Android EventBus code)
  * @author Cliff Biffle (Guava inherited code)
  */
 @SuppressWarnings("unused")

@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 2016 Arivald
+ * Copyright (C) 2016 PGS Software SA
  *
  * Licensed under the Apache License, Version 2.0 (the "License"); you may not use this file except
  * in compliance with the License. You may obtain a copy of the License at
@@ -20,7 +20,7 @@ import android.support.annotation.NonNull;
  * A Runnable that can be executed on Executor, does the job of invoking the event handler with
  * specified event.
  * <p/>
- * @author Arivald
+ * @author Lukasz Plominski
  */
 /*package*/ final class Deliverer implements Runnable {
 
