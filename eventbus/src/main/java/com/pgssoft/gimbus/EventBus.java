@@ -185,6 +185,11 @@ public class EventBus {
             }
             //finally, add new event handlers to the registered handlers
             registeredEventHandlersForEventType.addAll(entry.getValue());
+
+            Object stickyEvent = Cache.stickyEvents.get(entry.getKey());
+            if (stickyEvent != null) {
+                sendTo(stickyEvent, subscriber);
+            }
         }
     }
 
@@ -338,6 +343,30 @@ public class EventBus {
      */
     public void send(@NonNull final Object event) {
         new Dispatcher(this, event, null).run();
+    }
+
+    /**
+     * Same as {@link #send(Object)}, but additionally {@code event} will be cached and delivered to
+     * every new subscriber immediately after it registers itself in the event bus. Sticky events remain
+     * active unless they get removed using {@link #removeStickyEvent(Class)} method.
+     * There can only exist one sticky event of given time at a time. If another sticky event of given type is sent,
+     * old instance gets replaced by a new one.
+     *
+     * @param event @NonNull sticky event to send
+     */
+    public void sendSticky(@NonNull final Object event) {
+        Cache.stickyEvents.put(event.getClass(), event);
+        send(event);
+    }
+
+    /**
+     * Removes sticky event, which was previously sent using {@link #sendSticky(Object)} method.
+     * Once event is removed from cache, it will no longer be sent to new subscribers on registration.
+     *
+     * @param eventClass @NonNull class of sticky event to be removed
+     */
+    public void removeStickyEvent(@NonNull Class<?> eventClass) {
+        Cache.stickyEvents.remove(eventClass);
     }
 
     /**
