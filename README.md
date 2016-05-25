@@ -66,7 +66,7 @@ In Poland - it is a colloquial name of [school bus](https://en.wikipedia.org/wik
 
 ### Authors ###
 * Łukasz Płomiński (architecture and development)
-* Bartosz Stokrocki (unit testing and development)
+* Bartosz Stokrocki (maven, travis, repository)
 
 ### License ###
 The MIT License (MIT)
