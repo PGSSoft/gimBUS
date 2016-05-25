@@ -1,7 +1,7 @@
 ![gimBUS](gimbus_logo.png "gimBUS")
 
 
-## gimBUS [![Build Status](https://travis-ci.org/bstokrocki/gimBUS.svg?branch=develop)](https://travis-ci.org/bstokrocki/gimBUS)
+## gimBUS [![Build Status](https://travis-ci.org/PGSSoft/gimBUS.svg?branch=master)](https://travis-ci.org/PGSSoft/gimBUS)
 Event bus for Android with fine-grained thread control.
 
 ### Why not use Otto by Square?
