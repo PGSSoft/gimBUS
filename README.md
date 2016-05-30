@@ -12,7 +12,7 @@ gimBUS has better delivery thread control, scroll down for details. gimBUS is ba
 
 * import library from Gradle
 ```
-compile 'com.pgs-soft:gimbus:1.0.0'
+compile 'com.pgs-soft:gimbus:1.1.0'
 ```
 
 * Create bus instance (prefferably as singleton, i.e. within Application.java sub-class):
